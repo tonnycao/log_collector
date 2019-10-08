@@ -1,0 +1,89 @@
+1. 视频
+ID string
+标题 string
+文件名 string
+网址 string
+播放次数 int
+标签 set
+
+2. 用户
+ID string
+MAC string
+IP string
+省市 string
+网络运营商 string
+渠道 string
+设备 string
+手机 string
+学习信息 set
+
+3. 题目
+ID string
+版本 string
+类型 string
+年级 string
+学科 string
+知识点 string
+答题统计 int
+答对统计 int
+答错统计 int
+难度 string
+
+4. 栏目
+ID string
+名称 string
+module string
+排序 int
+上级ID string
+对应套餐 string
+
+5. 套餐
+ID string
+编码 string
+名称 string
+包月价格 int
+优惠包月价格 int
+包年价格 int
+优惠包年价格 int
+对应栏目 set
+购买量统计 int
+
+6. 订单
+ID string
+MAC string
+渠道 string
+价格 int
+实付 int
+包含套餐 set
+下单时间 string
+付款时间 string
+订单状态 string
+
+7. 用户做题记录
+MAC string
+UID int
+QID string
+答题时间 string
+所用时间 int
+答案 string
+结果 boole
+
+8. 用户观看视频记录
+MAC string
+UID int
+VID int
+观看用时 int
+视频时长  int
+观看时间 string
+
+9. 用户使用记录
+MAC string
+UID int
+IP string
+省市 string
+网络运营商 string
+渠道 string
+设备 string
+开始时间 int
+结束时间 int
+使用时长 int
