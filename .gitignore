@@ -1,3 +1,5 @@
 /.idea/
 /storage/
 /__pycache__/
+/bin/__pycache__/
+/config/__pycache__/
