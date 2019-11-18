@@ -30,35 +30,30 @@ class FileBeater(object):
         self.instance = instance
         self.count = 0
         self.t = None
+        self.proc = None
+        self.metadata = dict()
 
-    def scan(self):
+    def _scan(self):
         '''
         开始
         :return:
         '''
         result = None
-        cmd = 'tail  -n 1  -f%s'.format(self.path)
-        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
-        try:
-            outs, errs = proc.communicate(timeout=15)
-        except TimeoutExpired:
-            proc.kill()
-            outs, errs = proc.communicate()
-        if outs:
-            result = self.parse_line(outs)
-            self.count += 1
-        return result
+        cmd = 'tail  -n 10  -f%s'.format(self.path)
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True, encoding='utf-8')
+        self.proc = proc
 
-    def parse_line(self, line):
+    def parse_line(self):
         '''
         处理函数
         :return:
         '''
+        line = self.proc.stdout.readline().rstrip()
         data = self.instance.parse(line)
-        return data
 
     def run(self):
-        self.t = Timer(self.scan_frequency, self.scan)
+        self._scan()
+        self.t = Timer(self.scan_frequency, self.parse_line)
         self.t.start()
 
 
