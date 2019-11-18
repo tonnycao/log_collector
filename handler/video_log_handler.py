@@ -5,7 +5,6 @@
 # @File    : video_log_handler.py
 # @Software: PyCharm
 
-import os
 import time
 from config.config import *
 
