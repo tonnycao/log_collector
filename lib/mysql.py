@@ -284,6 +284,30 @@ class CourseMySql(MySql):
         self.cursor.close()
         self.connect.close()
 
+class LanuchMySql(MySql):
+    def __init__(self,  host, user, passwd, port, db, charset, table):
+        MySql.__init__(self, host, user, passwd, port, db, charset, table)
+
+    def state_by_date(self, start_date, end_date):
+        total = 0
+        sql = "select count(id) as total from " + self.table + " where  created_at >'{0}' and created_at < '{1}'".format(start_date, end_date)
+        data = self.execute_sql_with_one_data(sql)
+        if data is not None:
+            total = data[0]
+        return total
+
+
+class ReportMySql(MySql):
+    def __init__(self,  host, user, passwd, port, db, charset, table):
+        MySql.__init__(self, host, user, passwd, port, db, charset, table)
+
+    def state_by_date(self, start_date, end_date):
+        total = 0
+        sql = "select count(id) as total from " + self.table + " where note='success' and created_at >'{0}' and created_at < '{1}'".format(start_date, end_date)
+        data = self.execute_sql_with_one_data(sql)
+        if data is not None:
+            total = data[0]
+        return total
 
 # 华师大章节
 class ChapterMySql(MySql):

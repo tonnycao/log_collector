@@ -4,3 +4,5 @@
 /bin/__pycache__/
 /config/__pycache__/
 /data/*
+/log/*
+/lib/__pycache__

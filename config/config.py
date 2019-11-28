@@ -10,11 +10,11 @@ DATA_PATH = os.path.join(base_path, 'data')
 # 日志文件路径
 LOG_PATH = os.path.join(base_path, 'log')
 
-MYSQL_HOST = '127.0.0.1'
+MYSQL_HOST = '192.168.10.56'
 MYSQL_PORT = 3306
-MYSQL_USER = 'root'
-MYSQL_PWD = 'DRsXT5ZJ6Oi55LPQ'
-MYSQL_DB = 'test'
+MYSQL_USER = 'bestbox3'
+MYSQL_PWD = 'secret2017'
+MYSQL_DB = 'db_bestbox3_internet'
 MYSQL_CHARSET = 'utf8mb4'
 DEBUG_MODEL = True
 
